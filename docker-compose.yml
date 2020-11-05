@@ -1,13 +1,16 @@
-  version: '3'
+version: "3.7"
+networks:
+  default:
+    external:
+      name: bot
+services:
 
-  services:
-
-    web:
-      build:
-        context: .
-        dockerfile: Dockerfile
-      command: python api.py
-      volumes:
-        - .:/code
-      ports:
-        - "5000:5000"
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python api.py
+    volumes:
+      - .:/code
+    ports:
+      - "5000:5000"
